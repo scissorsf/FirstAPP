@@ -34,3 +34,19 @@
 
 
 }
+.navbar-custom .navbar-nav > li > a {
+    color: #fff;
+}
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus {
+    color: #9d9d9d;
+    background-color: transparent;
+}
+.navbar-custom .navbar-brand  {
+    color: #fff;
+}
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus {
+    color: #9d9d9d;
+    background-color: transparent;
+}
