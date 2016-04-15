@@ -26,14 +26,17 @@
     font-size: 2.2rem;
     color: #000;
 }
-.transcluded {
 
-    padding: 5px;
-    background: #900;
-    color: #ddd;
+.background {
+    position: absolute;
+    top:0;
+    opacity:0.8;
+    width: inherit;
+    height: 900px;
+    background: url(../image/header.jpg) no-repeat;
+
 }
+.overlay {
+    width:100%;
 
-.close {
-    font-weight: bold;
-    cursor: pointer;
 }
