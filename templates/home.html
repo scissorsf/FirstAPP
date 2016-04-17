@@ -1,11 +1,92 @@
-<div id="datetime">
-    <h1>{{date.raw | date: 'hh mm ss a'}}</h1>
-    <h2>{{ date.raw | date: 'EEEE, MMMM yyyy' }}</h2>
-</div>
-<div>
-    <p>{{weather.basic}}</p>
-</div>
 
-<div>
+<div class="home">
+    <nav class="navbar navbar-fixed-top navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
 
+                <a class="navbar-brand" href="#/">Home</a>
+            </div>
+            <div >
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Article</a></li>
+                    <li class="dropdown">
+                        <a  class=" dropdown-toggle"  role="button" data-toggle="dropdown">
+                            Learn<span class="caret"></span> </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#/bloglist">Blog</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+
+                    </li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">search</button>
+                </form>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <header class=" background">
+
+    </header>
+    <section>
+        <div class="container">
+            <div class="text-center">
+
+                <h3 >Do NEXT!</h3>
+            </div>
+            <div id="datetime">
+                <h1>{{date.raw | date: 'hh mm ss a'}}</h1>
+                <h2>{{ date.raw | date: 'EEEE, MMMM yyyy' }}</h2>
+            </div>
+        </div>
+
+    </section>
+    <!--<footer>-->
+        <!--<div class="container">-->
+            <!--<div class="row">-->
+                <!--<div class="col-md-4 col-sm-5">-->
+                    <!--<h3>MyApp</h3>-->
+                    <!--<p>Gfei's first Web Application.</p>-->
+                    <!--<small>-->
+                        <!--"Copyright © MyApp. All rights reserved."-->
+                    <!--</small>-->
+                <!--</div>-->
+                <!--<div class="col-xs-4 col-sm-2 col-md-offset-2 col-sm-offset-1">-->
+                    <!--<p>Article</p>-->
+                    <!--<ul  class="list-unstyled">-->
+                        <!--<li>124</li>-->
+                        <!--<li>12314</li>-->
+                        <!--<li>12314</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+                <!--<div class="col-xs-4 col-sm-2">-->
+                    <!--<p>Link</p>-->
+                    <!--<ul  class="list-unstyled">-->
+                        <!--<li>124</li>-->
+                        <!--<li>12314</li>-->
+                        <!--<li>12314</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+                <!--<div class="col-xs-4 col-sm-2">-->
+                    <!--<p>Connect</p>-->
+                    <!--<ul  class="list-unstyled">-->
+                        <!--<li>124</li>-->
+                        <!--<li>12314</li>-->
+                        <!--<li>12314</li>-->
+
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</footer>-->
 </div>

@@ -1,23 +1,37 @@
 /**
  * Created by Gfei on 2016/4/15.
  */
-var app= angular.module('myApp',['ngRoute'])
-    .config(function($routeProvider){
+var app= angular.module('myApp',['ui.router','homepage','blogpage'])
+    .config(function($stateProvider, $urlRouterProvider){
 
-        $routeProvider
-            .when('/',{
-                templateUrl: 'templates/home.html',
-                controller: 'MainController'
+        $stateProvider
+            .state('tab', {
+                url:'',
+                templateUrl: 'templates/index.html',
+                abstract: true
+            })
+            .state('tab.home',{
+                url:'/',
+                controller: 'MainController',
+                templateUrl:'templates/home.html'
+            })
+            .state('tab.blog',{
+                url:'/bloglist',
+                controller: 'BlogController',
+                templateUrl:'templates/blog.html'
             })
 
-            .otherwise({redirectTo: '/'});
+        ;
+        $urlRouterProvider.otherwise('/');
+
 
     })
     .config(function(WeatherProvider){
 
         WeatherProvider.setApiKey('56a2bd36bf0b58ca64811e43a61b3094')
-    })
-    .controller('MainController',function($scope,$timeout,Weather){
+    });
+    angular.module('homepage',[])
+        .controller('MainController',function($scope,$timeout,Weather){
 
         //构建data对象
         $scope.date = {};
@@ -43,4 +57,46 @@ var app= angular.module('myApp',['ngRoute'])
             });
 
 
+    });
+
+
+    angular.module('blogpage',[])
+        .config(function($stateProvider){
+
+            $stateProvider
+
+                .state('tab.blog.categories',{
+                    url:'/categories/:category',
+                    controller: 'BlogController',
+                    templateUrl:'templates/blog/blog.tmpl.html'
+                })
+
+            ;
+
+        })
+        .controller('BlogController',function($scope,$stateParams){
+            $scope.message = "Nothing, waiting for add...";
+            $scope.categories = [
+                {"id": 0, "name": "Development"},
+                {"id": 1, "name": "Design"},
+                {"id": 2, "name": "Exercise"},
+                {"id": 3, "name": "Humor"}
+            ];
+            $scope.bookmarks = [
+                {"id":0, "title": "AngularJS", "url": "http://angularjs.org", "category": "Development" },
+                {"id":1, "title": "Egghead.io", "url": "http://angularjs.org", "category": "Development" },
+                {"id":2, "title": "A List Apart", "url": "http://alistapart.com/", "category": "Design" },
+                {"id":3, "title": "One Page Love", "url": "http://onepagelove.com/", "category": "Design" },
+                {"id":4, "title": "MobilityWOD", "url": "http://www.mobilitywod.com/", "category": "Exercise" },
+                {"id":5, "title": "Robb Wolf", "url": "http://robbwolf.com/", "category": "Exercise" },
+                {"id":6, "title": "Senor Gif", "url": "http://memebase.cheezburger.com/senorgif", "category": "Humor" },
+                {"id":7, "title": "Wimp", "url": "http://wimp.com", "category": "Humor" },
+                {"id":8, "title": "Dump", "url": "http://dump.com", "category": "Humor" }
+            ];
+            $scope.bookdata = [];
+            for(var i in $scope.bookmarks){
+                if($scope.bookmarks[i].category == $stateParams.category){
+                    $scope.bookdata.push($scope.bookmarks[i])
+                }
+            }
     });
