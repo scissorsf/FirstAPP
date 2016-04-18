@@ -49,12 +49,29 @@ var app= angular.module('myApp',['ui.router','homepage','blogpage'])
         updateTime();
         $scope.weather = {};
         $scope.map = {};
+        $scope.city = "wuhan";
+        $scope.changeCity = function(){
+            Weather.getWeatherForecast($scope.city)
+                .then(function(data){
 
-        Weather.getWeatherForecast('wuhan')
+                    $scope.weather.basic = data.basic;
+                    $scope.weather.now = data.now;
+                    $scope.weather.aqi = data.aqi;
+                    $scope.weather.daily_forecast = Weather.getIconUrl(data.daily_forecast.slice(0,4));
+                });
+
+        };
+
+
+        Weather.getWeatherForecast($scope.city)
             .then(function(data){
 
                 $scope.weather.basic = data.basic;
+                $scope.weather.now = data.now;
+                $scope.weather.aqi = data.aqi;
+                $scope.weather.daily_forecast = Weather.getIconUrl(data.daily_forecast.slice(0,4));
             });
+
 
 
     });
@@ -75,7 +92,7 @@ var app= angular.module('myApp',['ui.router','homepage','blogpage'])
 
         })
         .controller('BlogController',function($scope,$stateParams){
-            $scope.message = "Nothing, waiting for add...";
+            $scope.title = $stateParams.category;
             $scope.categories = [
                 {"id": 0, "name": "Development"},
                 {"id": 1, "name": "Design"},

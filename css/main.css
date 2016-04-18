@@ -39,6 +39,7 @@
 .blog header {
 
     background-color: #2e6da4;
+    opacity: 0.8;
     height:100px;
     padding:90px 0 0;
 
@@ -126,4 +127,15 @@ footer ul>li {
 }
 body {
 
+}
+.container .blogcontent{
+
+    margin:50px 0 50px 0;
+}
+.container .weather{
+
+    margin:20px 0 50px 0;
+}
+.container .weather .input-group{
+    margin-top:20px;
 }

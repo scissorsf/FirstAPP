@@ -5,7 +5,7 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
 
-                <a class="navbar-brand" href="#/">Home</a>
+                <a class="navbar-brand" ui-sref="tab.home">Home</a>
             </div>
             <div >
                 <ul class="nav navbar-nav">
@@ -14,7 +14,7 @@
                         <a  class=" dropdown-toggle"  role="button" data-toggle="dropdown">
                             Learn<span class="caret"></span> </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#/bloglist">Blog</a></li>
+                            <li><a ui-sref="tab.blog">Blog</a></li>
                             <li><a href="#">Another action</a></li>
                             <li><a href="#">Something else here</a></li>
                             <li><a href="#">Separated link</a></li>
@@ -48,45 +48,38 @@
                 <h1>{{date.raw | date: 'hh mm ss a'}}</h1>
                 <h2>{{ date.raw | date: 'EEEE, MMMM yyyy' }}</h2>
             </div>
+            <div class="row weather">
+                <div class="col-md-3">
+                    <h2>{{weather.basic.city}}</h2>
+                    <div>空气质量指数：{{weather.aqi.city.aqi}}</div>
+                    <div>空气质量：{{weather.aqi.city.qlty}}</div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="更换城市..." ng-model="city">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" ng-click="changeCity()" type="button">切换</button>
+                          </span>
+                    </div><!-- /input-group -->
+                </div>
+                <div class="col-md-9">
+                    <ul class="list-unstyled">
+                        <li ng-repeat="forecast in weather.daily_forecast">
+                            <div class="col-md-3 text-center">
+                                <div>{{forecast.date}}</div>
+                                <img ng-src="image/weather_icon/{{forecast.cond.url}}" />
+                                <div>{{forecast.tmp.min}}~{{forecast.tmp.max}}</div>
+                                <div>{{forecast.cond.txt_d}}</div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+
+
         </div>
 
     </section>
-    <!--<footer>-->
-        <!--<div class="container">-->
-            <!--<div class="row">-->
-                <!--<div class="col-md-4 col-sm-5">-->
-                    <!--<h3>MyApp</h3>-->
-                    <!--<p>Gfei's first Web Application.</p>-->
-                    <!--<small>-->
-                        <!--"Copyright © MyApp. All rights reserved."-->
-                    <!--</small>-->
-                <!--</div>-->
-                <!--<div class="col-xs-4 col-sm-2 col-md-offset-2 col-sm-offset-1">-->
-                    <!--<p>Article</p>-->
-                    <!--<ul  class="list-unstyled">-->
-                        <!--<li>124</li>-->
-                        <!--<li>12314</li>-->
-                        <!--<li>12314</li>-->
-                    <!--</ul>-->
-                <!--</div>-->
-                <!--<div class="col-xs-4 col-sm-2">-->
-                    <!--<p>Link</p>-->
-                    <!--<ul  class="list-unstyled">-->
-                        <!--<li>124</li>-->
-                        <!--<li>12314</li>-->
-                        <!--<li>12314</li>-->
-                    <!--</ul>-->
-                <!--</div>-->
-                <!--<div class="col-xs-4 col-sm-2">-->
-                    <!--<p>Connect</p>-->
-                    <!--<ul  class="list-unstyled">-->
-                        <!--<li>124</li>-->
-                        <!--<li>12314</li>-->
-                        <!--<li>12314</li>-->
-
-                    <!--</ul>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</footer>-->
 </div>

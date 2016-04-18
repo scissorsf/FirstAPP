@@ -4,7 +4,7 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
 
-                <a class="navbar-brand" href="#/">Home</a>
+                <a class="navbar-brand" ui-sref="tab.home">Home</a>
             </div>
             <div >
                 <ul class="nav navbar-nav">
@@ -37,10 +37,8 @@
     <header></header>
 
     <div class="container">
-        <div class="text-center">
-            <h3 >{{message}}</h3>
-        </div>
-        <div class="row">
+
+        <div class="row blogcontent">
             <div class="col-md-3 ">
                 <ul class="nav nav-pills nav-stacked">
                     <li ng-repeat="category in categories" class="active">
@@ -57,9 +55,7 @@
             </div>
 
         </div>
-        <div class="text-center">
-            <h3 >{{message}}</h3>
-        </div>
+
     </div>
 
 

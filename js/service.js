@@ -37,6 +37,13 @@ app.provider('Weather',function(){
 
                 return d.promise;
 
+            },
+            getIconUrl: function(data){
+
+                for(var i in data){
+                    data[i].cond.url = data[i].cond.code_d+".png"
+                }
+                return data;
             }
 
 
